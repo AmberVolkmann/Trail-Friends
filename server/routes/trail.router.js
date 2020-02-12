@@ -1,12 +1,21 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const axios = require ('axios');
+const HIKING_API_KEY = process.env.HIKING_API_KEY;
 
 /**
  * GET route template
  */
 router.get('/', (req, res) => {
-    
+    axios.get(`https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=${HIKING_API_KEY}`)
+    .then(response => {
+        console.log(response.data);
+        res.send(response.data);
+    }).catch(err => {
+        console.log('error in trail router', err);
+        res.sendStatus(500);
+    })
 });
 
 /**

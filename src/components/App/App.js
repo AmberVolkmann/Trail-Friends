@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Map from '../Map/Map';
+import AllTrails from '../AllTrails/AllTrails'
 
 import './App.css';
 
@@ -44,6 +45,11 @@ class App extends Component {
               exact
               path="/map"
               component={Map}
+            />
+            <Route
+              exact
+              path="/alltrails"
+              component={AllTrails}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
