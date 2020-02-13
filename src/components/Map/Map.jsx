@@ -8,11 +8,7 @@ import { withRouter } from 'react-router-dom';
 class Map extends Component {
 
 
-    // getMap = () => {
-    //     return (
-    //         <GoogleMap defaultZoom={10} defaultCenter={{lat: 44.977489, lng: -93.264374}}/>
-    //     )
-    // }
+    
 
 
     render () {

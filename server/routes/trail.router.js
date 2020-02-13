@@ -8,9 +8,9 @@ const HIKING_API_KEY = process.env.HIKING_API_KEY;
  * GET route template
  */
 router.get('/', (req, res) => {
-    axios.get(`https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=${HIKING_API_KEY}`)
+    axios.get(`https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200677409-73ac38262c5f8297edc4c15be59aa795`)
     .then(response => {
-        console.log(response.data);
+        console.log('response.data:', response.data);
         res.send(response.data);
     }).catch(err => {
         console.log('error in trail router', err);
@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+// router.post('/', (req, res) => {
 
-});
+// });
 
 module.exports = router;

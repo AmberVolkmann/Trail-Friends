@@ -1,5 +1,5 @@
 const trailReducer = (state = [], action ) => {
-    if ( action.type === 'GET_TRAILS') {
+    if ( action.type === 'SET_TRAILS') {
         return action.payload
     }
     return state
