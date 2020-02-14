@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, withRouter } from 'react-router-dom';
 
 
 class ChangeTrailButton extends Component {
@@ -25,4 +25,4 @@ const mapStateToProps = (reduxStore) => ({
   reduxStore
 })
 
-export default connect(mapStateToProps)(ChangeTrailButton);
+export default withRouter(connect(mapStateToProps)(ChangeTrailButton));
