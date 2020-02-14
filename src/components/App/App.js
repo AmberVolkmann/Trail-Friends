@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import Map from '../Map/Map';
 
 import AllTrails from '../AllTrails/AllTrails'
-
+// import * as trailData from '.../data/trails.json';
 import './App.css';
 import UpdatedMap from '../UpdatedMap/UpdatedMap';
 
