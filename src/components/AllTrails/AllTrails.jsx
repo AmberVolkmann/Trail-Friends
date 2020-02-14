@@ -30,7 +30,7 @@ class AllTrails extends Component {
               <div>
                 <p>{trail.name}</p>
                 <p>{trail.summary}</p>
-                 <img src={trail.url} /> 
+                 <img src={trail.imgSmall} /> 
                 
               </div>
             </li>

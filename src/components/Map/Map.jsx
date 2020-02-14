@@ -38,7 +38,7 @@ function Map() {
             >
             <div>
                 <div>
-                    <img src={selectedTrail.imgSqSmall} />
+                    <img src={selectedTrail.imgSmall} />
                 </div>
                 <div>
                 {/* <img src={selectedTrail.imgSqSmall} /> */}
