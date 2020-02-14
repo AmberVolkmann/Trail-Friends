@@ -1,39 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
+import { GoogleMap, withScriptjs, withGoogleMap, LoadScript } from 'react-google-maps';
 import { withRouter } from 'react-router-dom';
+import DroppedPin from '../DroppedPin/DroppedPin';
+import UserLocation from '../UserLocation/UserLocation'
 
 
-class Map extends Component {
-
-
+function getMap() {
     
+    return (
+    <GoogleMap defaultZoom={10} defaultCenter={{lat: 44.977489, lng: -93.264374}}/>
 
+    )
+}
 
-    render () {
-        function getMap () {
-            return (
-                <GoogleMap defaultZoom={10} defaultCenter={{lat: 44.977489, lng: -93.264374}}/>
-            )
-        }
+const WrappedMap = withScriptjs(withGoogleMap(getMap));
 
-        const WrappedMap = withScriptjs(withGoogleMap(getMap));
-        // const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-        return (
-            <div style={{width: '100vw', height: '100vh'}}>
+export default function Map(key) {
+   
+    return (
+        <div style={{width: '100vw', height: '100vh'}}>
             <WrappedMap  
+            //maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+            // googleMapURL={`https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}`}
             googleMapURL = {`https://maps.googleapis.com/maps/api/js?key=AIzaSyBMGVYY3hWxOnKawTM3ntOBzexZa1lGa_I`}
             loadingElement={<div style={{height: "100%"}}/>}
             containerElement={<div style={{height: "100%"}}/>}
             mapElement={<div style={{height: "100%"}}/>}
             />
         </div>
-        )
-    }
+    )
 }
-
-const mapStateToProps = (reduxStore) => ({
-    reduxStore
-});
-export default connect(mapStateToProps)(Map);

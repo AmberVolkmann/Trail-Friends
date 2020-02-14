@@ -4,7 +4,7 @@ import {  HashRouter as Router} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {
     Marker, InfoWindow
-} from '@react-google-maps/api';
+} from 'google-maps-react';
 
 
 class DroppedPin extends Component {
