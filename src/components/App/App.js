@@ -48,7 +48,7 @@ class App extends Component {
               path="/map"
               component={Map}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/alltrails"
               component={AllTrails}

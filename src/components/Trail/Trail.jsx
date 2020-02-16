@@ -14,10 +14,11 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   card: {
@@ -47,11 +48,34 @@ const styles = theme => ({
 
 class Trail extends Component {
 
-  state = { expanded: false };
+  state = { 
+      expanded: false,
+      updatedTrail: this.props.id
+      
+    };
 
     handleExpandClick = () => {
         this.setState(state => ({ expanded: !state.expanded }));
       };
+
+    // handleTrailChange = () => {
+    //     console.log('handle trail change clicked', this.props.id)
+    // }
+
+    updateCurrentTrail = (event, propertyName) => {
+        console.log('handle trail change clicked', this.props.id)
+        this.setState({
+            updatedTrail:{
+                ...this.state.updatedTrail,
+                [propertyName]: event.target.value,
+            }
+        })
+        console.log('this.state.updatedTrail.id', this.state.updatedTrail)
+        this.props.dispatch({
+            type: 'UPDATE_CURRENT_TRAIL',
+            payload: this.state.updatedTrail
+        })
+    }
 
 
   render() {
@@ -70,7 +94,7 @@ class Trail extends Component {
                       }
                       action={
                         <IconButton>
-                          <MoreVertIcon />
+                          {/* <MoreVertIcon /> */}
                         </IconButton>
                       }
                       title={this.props.trail.name}
@@ -87,9 +111,12 @@ class Trail extends Component {
                       </Typography>
                     </CardContent>
                     <CardActions className={classes.actions} disableActionSpacing>
-                      <IconButton aria-label="Add to favorites">
+                    <Button size="small" color="primary" onClick={this.updateCurrentTrail} value={this.state.updatedTrail}>
+                      Select Trail
+                    </Button>
+                      {/* <IconButton aria-label="Add to favorites">
                         <FavoriteIcon />
-                      </IconButton>
+                      </IconButton> */}
                       {/* <IconButton aria-label="Share">
                         <ShareIcon />
                       </IconButton> */}
