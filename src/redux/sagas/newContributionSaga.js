@@ -2,24 +2,24 @@ import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-function* updateCurrentTrail(action) {
+function* addNewContribution(action) {
     console.log('action.payload', action.payload)
 
   try {
     const response = yield axios.put(`/api/alltrails`, {trailKey: action.payload} );
     yield put({ 
-        type: 'SET_CURRENT_TRAIL', 
+        type: 'ADD_NEW_CONTRIBUTION', 
         // payload: response.data
     })
     console.log(response.data)
   } catch (error) {
-      console.log('Error wieth update current trail Saga:', error);
+      console.log('Error with update current trail Saga:', error);
       
   }
 }
 
 function* updateCurrentTrailSaga() {
-  yield takeEvery('UPDATE_CURRENT_TRAIL', updateCurrentTrail);
+  yield takeEvery('POST_CONTRIBUTION', addNewContribution);
 }
 
 export default updateCurrentTrailSaga;

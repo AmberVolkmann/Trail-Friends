@@ -17,11 +17,13 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Map from '../Map/Map';
+import AddContribution from '../AddContribution/AddContribution';
 
 import AllTrails from '../AllTrails/AllTrails'
 // import * as trailData from '.../data/trails.json';
 import './App.css';
 import UpdatedMap from '../UpdatedMap/UpdatedMap';
+
 
 class App extends Component {
   componentDidMount () {
@@ -52,6 +54,11 @@ class App extends Component {
               exact
               path="/alltrails"
               component={AllTrails}
+            />
+            <ProtectedRoute
+              exact
+              path="/addcontribution"
+              component={AddContribution}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

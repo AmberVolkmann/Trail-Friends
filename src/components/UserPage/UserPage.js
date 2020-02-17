@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import ChangeTrailButton from '../ChangeTrailButton/ChangeTrailButton';
+import ContributeButton from '../ContributeButton/ContributeButton';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 // this could also be written with destructuring parameters as:
@@ -15,6 +16,7 @@ const UserPage = (props) => (
     <img src={props.user.profile_picture} alt="user's image"/>
     <p>Current Trail: {props.user.current_trail}</p>
     <ChangeTrailButton />
+    <ContributeButton />
     {/* <p>Your ID is: {props.user.id}</p> */}
     <LogOutButton className="log-in" />
   </div>

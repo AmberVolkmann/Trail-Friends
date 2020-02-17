@@ -22,19 +22,19 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.put('/:id', (req, res) => {
+router.put('/', (req, res) => {
     console.log('in post trail router');
     console.log('req.user.id', req.user.id);
-    const id = req.params.id
-    const current_trail = req.body;
+
+    const current_trail = req.body.trailKey;
     debugger;
     console.log('req.body', req.body);
-    console.log('req.params.id', req.params.id);
+
     
     const queryText = `UPDATE "user" SET "current_trail" = $1 WHERE "id" = $2;`;
     const queryValues = [
         current_trail,
-        id
+        req.user.id
     ];
     pool.query(queryText, queryValues)
     .then(()=> {
