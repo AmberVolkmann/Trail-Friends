@@ -25,11 +25,11 @@ class AllContributions extends Component {
       <Router>
         <div className="contributionList">
             
-          {/* {this.props.reduxStore.contributionReducer.map(contribution => {
+          {this.props.reduxStore.contributionReducer.map(contribution => {
             return (
               <Contribution contribution={contribution} id={contribution.id} key={contribution.id} />
             )
-          })} */}
+          })}
           {/* <Map trails={this.props.reduxStore.trails} id={this.props.reduxStore.id} key={this.props.reduxStore.id} 
           latitude={this.props.reduxStore.latitude}
           /> */}

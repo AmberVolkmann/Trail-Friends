@@ -6,6 +6,7 @@ import trailSaga from './trailSaga';
 import updateCurrentTrailSaga from './updateTrailSaga';
 import addNewContributionSaga from './newContributionSaga';
 import contributionSaga from './contributionSaga';
+import deleteContributionSaga from './deleteContributionSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     updateCurrentTrailSaga(),
     addNewContributionSaga(),
     contributionSaga(),
+    deleteContributionSaga(),
   ]);
 }

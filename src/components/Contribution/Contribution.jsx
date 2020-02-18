@@ -8,6 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = {
     card: {
@@ -28,6 +30,15 @@ const styles = {
 
 class Contribution extends Component {
 
+    deleteContribution = (event, propertyName) => {
+        console.log('deleteContribution', this.props.id)
+        
+        this.props.dispatch({
+            type: 'DELETE_CONTRIBUTION',
+            payload: this.props.contribution.id
+        })
+    }
+
 
 
     render() {
@@ -41,22 +52,29 @@ class Contribution extends Component {
             <Card className={classes.root}>
         <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Word of the Day
+            {this.props.contribution.date_submitted}
             </Typography>
             <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
+            {/* be{bull}nev{bull}o{bull}lent */}
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-            adjective
+            {/* {this.props.contribution.created_by} */}
             </Typography>
             <Typography variant="body2" component="p">
-            well meaning and kindly.
+            {this.props.contribution.comment}
             <br />
-            {'"a benevolent smile"'}
+            {/* {'"a benevolent smile"'} */}
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Learn More</Button>
+            {this.props.reduxStore.user.id === contribution.submitted_by ? 
+            <IconButton aria-label="Add to favorites" onClick={() => this.props.dispatch(
+                {type: 'DELETE_CONTRIBUTION',
+                payload: this.props.contribution.id})}>
+                <DeleteIcon />
+            </IconButton> :
+            <p></p>
+            }
         </CardActions>
         </Card>
                   
