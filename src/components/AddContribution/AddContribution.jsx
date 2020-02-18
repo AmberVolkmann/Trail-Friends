@@ -9,20 +9,13 @@ class AddContribution extends Component {
 
     state= {
         newContribution:{
-            createdBy: this.props.id,
+            createdBy: this.props.reduxStore.id,
             comment: '',
             dateSubmitted: null,
-            trailId: this.props.current_trail,
+            trailId: this.props.reduxStore.current_trail,
             latitude: '',
             longitude: ''
         }
-    }
-
-    componentDidMount() {
-        this.props.dispatch({
-            type: 'FETCH_TRAILS'
-        })
-        
     }
 
     

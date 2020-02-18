@@ -23,6 +23,7 @@ import AllTrails from '../AllTrails/AllTrails'
 // import * as trailData from '.../data/trails.json';
 import './App.css';
 import UpdatedMap from '../UpdatedMap/UpdatedMap';
+import AllContributions from '../AllContributions/AllContributions';
 
 
 class App extends Component {
@@ -59,6 +60,11 @@ class App extends Component {
               exact
               path="/addcontribution"
               component={AddContribution}
+            />
+            <ProtectedRoute
+              exact
+              path="/allcontributions"
+              component={AllContributions}
             />
             {/* <ProtectedRoute
               exact
