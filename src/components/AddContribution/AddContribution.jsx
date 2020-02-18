@@ -9,14 +9,23 @@ class AddContribution extends Component {
 
     state= {
         newContribution:{
-            createdBy: '',
+            createdBy: this.props.id,
             comment: '',
-            dateSubmitted: '',
-            trailId: '',
+            dateSubmitted: null,
+            trailId: this.props.current_trail,
             latitude: '',
             longitude: ''
         }
     }
+
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'FETCH_TRAILS'
+        })
+        
+    }
+
+    
 
     handleChangeFor = (propertyName, event) => {
         console.log(event.target.value)
@@ -36,13 +45,20 @@ class AddContribution extends Component {
         })
     }
 
+    newDate = () => {
+
+    }
+
     render () {
         return (
             <Router>
                 <form className="contributionForm" onSubmit={this.handleAddContribution}>
                     <label>Add a New Contribution</label>
                     <textarea value={this.state.comment} onChange = {(event) => this.handleChangeFor('comment', event)} />
-                    {/* <input value={this.state.comment} onChange = {(event) => this.handleChangeFor('comment', event)} /> */}
+                    <br />
+                    <input value={this.state.latitude} onChange = {(event) => this.handleChangeFor('latitude', event)} />
+                    <br />
+                    <input value={this.state.longitude} onChange = {(event) => this.handleChangeFor('longitude', event)} />
                     <input type= "submit" onClick = {this.handleAddContribution}/>
                 </form>
             </Router>

@@ -50,7 +50,8 @@ class Trail extends Component {
 
   state = { 
       expanded: false,
-      updatedTrail: this.props.id
+      updatedTrail: 
+        this.props.id
       
     };
 
@@ -70,7 +71,7 @@ class Trail extends Component {
                 [propertyName]: event.target.value,
             }
         })
-        console.log('this.state.updatedTrail.id', this.state.updatedTrail)
+        console.log('this.state.updatedTrail.id', this.state.updatedTrail.id)
         this.props.dispatch({
             type: 'UPDATE_CURRENT_TRAIL',
             payload: this.state.updatedTrail

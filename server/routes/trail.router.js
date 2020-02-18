@@ -9,7 +9,7 @@ const {rejectUnautenticated} = require('../modules/authentication-middleware')
  * GET route template
  */
 router.get('/', (req, res) => {
-    axios.get(`https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200677409-73ac38262c5f8297edc4c15be59aa795`)
+    axios.get(`https://www.hikingproject.com/data/get-trails?lat=47.750200&lon=-90.335620&maxDistance=100&key=200677409-73ac38262c5f8297edc4c15be59aa795`)
     .then(response => {
         // console.log('response.data:', response.data);
         res.send(response.data);
