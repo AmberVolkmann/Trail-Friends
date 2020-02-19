@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+const moment = require('moment');
 
 const styles = {
     card: {
@@ -52,13 +53,14 @@ class Contribution extends Component {
             <Card className={classes.root}>
         <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-            {this.props.contribution.date_submitted}
+            {moment(this.props.contribution.date_submitted).format('LL')}
             </Typography>
             <Typography variant="h5" component="h2">
             {/* be{bull}nev{bull}o{bull}lent */}
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-            {/* {this.props.contribution.created_by} */}
+              {/* Change this to display the user's name, not their ID */}
+            {this.props.contribution.created_by}
             </Typography>
             <Typography variant="body2" component="p">
             {this.props.contribution.comment}
@@ -67,7 +69,7 @@ class Contribution extends Component {
             </Typography>
         </CardContent>
         <CardActions>
-            {this.props.reduxStore.user.id === contribution.submitted_by ? 
+            {this.props.reduxStore.user.id === this.props.contribution.created_by ? 
             <IconButton aria-label="Add to favorites" onClick={() => this.props.dispatch(
                 {type: 'DELETE_CONTRIBUTION',
                 payload: this.props.contribution.id})}>

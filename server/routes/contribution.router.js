@@ -30,11 +30,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const newContribution = req.body;
     console.log(newContribution)
     const queryText = `INSERT INTO "contributions" ("created_by", "comment", "date_submitted", "trail_id", "latitude", "longitude")
-    VALUES ($1, $2, $3, $4, $5, $6);`;
+    VALUES ($1, $2, now(), $3, $4, $5);`;
     const queryValues = [
         newContribution.createdBy,
         newContribution.comment,
-        newContribution.dateSubmitted,
+        // newContribution.dateSubmitted,
         newContribution.trailId,
         newContribution.latitude,
         newContribution.longitude,
@@ -50,24 +50,34 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 
-router.delete('/:id/:user_id', rejectUnauthenticated, (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.user.id)
     const id = req.params.id
-    const user_id = req.params.user_id
+    const user_id = req.params.created_by
     const loggedin_user = req.user.id
-    console.log('in delete route', id)
-    if (loggedin_user == user_id) {
-        const queryText = 'DELETE FROM "contributions" WHERE "id" = $1'
-        pool.query(queryText, [id])
-        .then(() => {res.sendStatus(200)})
-        .catch((err) => {
-        console.log(err)
-        res.sendStatus(500)
-    })
-    } else {
-        res.sendStatus(403)
-        console.log('error deleting on the router')
-    }
+    console.log('in delete route. the id is:', id)
+    let queryText = `DELETE FROM "contributions" 
+                    WHERE "id" = $1`;
+    pool.query(queryText, [id])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log('ERROR IN / DELETE', error);
+            res.sendStatus(500);
+        });
+    // if (loggedin_user == user_id) {
+    //     const queryText = 'DELETE FROM "contributions" WHERE "id" = $1'
+    //     pool.query(queryText, [id])
+    //     .then(() => {res.sendStatus(200)})
+    //     .catch((err) => {
+    //     console.log(err)
+    //     res.sendStatus(500)
+    // })
+    // } else {
+    //     res.sendStatus(403)
+    //     console.log('error deleting on the router')
+    // }
 });
 
 module.exports = router;

@@ -6,14 +6,14 @@ function* deleteContribution(action) {
     console.log('action.payload', action.payload)
 
   try {
-    const response = yield axios.delete(`/api/contributions/`,  );
+    const response = yield axios.delete(`/api/contributions/${action.payload}`,  );
     yield put({ 
         type: 'FETCH_CONTRIBUTIONS', 
         // payload: response.data
     })
     console.log(response.data)
   } catch (error) {
-      console.log('Error wieth update current trail Saga:', error);
+      console.log('Error delete contribution Saga:', error);
       
   }
 }
