@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import './Contribution.css'
 const moment = require('moment');
 
 const styles = {
@@ -50,7 +51,8 @@ class Contribution extends Component {
       return (
       <Router>
         <div>
-            <Card className={classes.root}>
+        
+            <Card raised className="cardComponent" style={{display: 'inline-block'}}>
         <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
             {moment(this.props.contribution.date_submitted).format('LL')}
@@ -78,9 +80,7 @@ class Contribution extends Component {
             <p></p>
             }
         </CardActions>
-        </Card>
-                  
-  
+        </Card> 
             
         </div>
         </Router>

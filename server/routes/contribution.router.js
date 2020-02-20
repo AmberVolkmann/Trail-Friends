@@ -44,7 +44,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(201);
         console.log(queryValues)
     }).catch((err) => {
-        console.log('Error in router.post on shelf router', err);
+        console.log('Error in router.post on contribution router', err);
         res.sendStatus(500);
     })
 });

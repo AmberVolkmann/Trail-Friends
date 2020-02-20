@@ -4,17 +4,18 @@
     display: inline-block;
     color: #f2f2f2;
     padding-left: 10px;
+    font-family: 'Courier New', Courier, monospace
 }
 
 .nav {
   overflow: hidden;
-  background-color: #00acb0;
+  background-color: #357544;
 }
 
 .nav-link {
   float: left;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-color: #357544;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -28,7 +29,7 @@
 }
 
 .nav-link:hover {
-  background-color: #008183;
+  background-color: #698C71;
 }
 
 .nav-right {
