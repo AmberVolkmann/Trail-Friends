@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import './AllContributions'
 // import Map from '../Map/Map';
+import CardDeck from 'react-bootstrap/CardDeck';
 
 
 const styles = theme => ({
@@ -55,7 +56,9 @@ class AllContributions extends Component {
                     
                 {this.props.reduxStore.contributionReducer.map(contribution => {
                     return (
-                    <Contribution contribution={contribution} id={contribution.id} key={contribution.id} />
+                    <CardDeck className="align-self-center mr-3">
+                      <Contribution contribution={contribution} id={contribution.id} key={contribution.id} />
+                    </CardDeck>
                     )
                     })}
                     {/* </Grid>

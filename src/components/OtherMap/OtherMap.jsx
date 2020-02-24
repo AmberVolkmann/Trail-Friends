@@ -18,7 +18,7 @@ const Map = (props)=>{
     defaultZoom={10} 
     defaultCenter={{lat: 44.977489, lng: -93.264374}}
     >
-    {trailData.trails.map((trail) => (
+    {contributionReducer.map((trail) => (
         <Marker key={trail.id} 
         position={{lat: trail.latitude, 
                     lng: trail.longitude}}

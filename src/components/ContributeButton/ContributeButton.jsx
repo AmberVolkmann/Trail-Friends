@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link, withRouter } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
 
 class ContributeButton extends Component {
   
@@ -14,7 +14,7 @@ class ContributeButton extends Component {
     return (
         <Router>
             <div>
-                <button onClick={this.handleClick}>Add a New Contribution</button>
+                <Button variant="success" size="lg" onClick={this.handleClick} block>Add a New Contribution</Button>
             </div>
       </Router>
     );

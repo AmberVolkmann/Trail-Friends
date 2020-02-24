@@ -2,4 +2,5 @@
     display: inline-flex;
     padding: 15px;
     justify-content: space-evenly;
+    align-content: center;
 }

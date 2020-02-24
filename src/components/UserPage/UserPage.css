@@ -1,0 +1,18 @@
+ 
+
+.profilePic {
+    display: inline-block;
+    
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-image: url('http://placehold.it/400x200');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.container {
+    flex-direction: column;
+}
+

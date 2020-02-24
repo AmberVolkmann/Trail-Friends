@@ -4,20 +4,35 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import ChangeTrailButton from '../ChangeTrailButton/ChangeTrailButton';
 import ContributeButton from '../ContributeButton/ContributeButton';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import './UserPage.css';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
-  <div>
+  <div className="containter">
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <img src={props.user.profile_picture} alt="user's image"/>
+    <div className="imageDiv" style={{
+    justifyContent: 'center',
+    alignItems: 'center',
+    }} >
+      <img className="profilePic" />  
+      {/* src={props.user.profile_picture}  */}
+       {/* alt="user's image"/> */}
+    </div>
     <p>Current Trail: {props.user.current_trail}</p>
     <ChangeTrailButton />
+    <br />
     <ContributeButton />
     {/* <p>Your ID is: {props.user.id}</p> */}
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <LogOutButton className="log-in" />
   </div>
 );
@@ -31,3 +46,4 @@ const mapStateToProps = state => ({
 
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);
+

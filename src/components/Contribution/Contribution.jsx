@@ -3,13 +3,16 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
 import './Contribution.css'
 const moment = require('moment');
 
@@ -52,22 +55,24 @@ class Contribution extends Component {
       <Router>
         <div>
         
-            <Card raised className="cardComponent" style={{display: 'inline-block'}}>
+            {/* <Card raised className="cardComponent" style={{display: 'inline-block'}}>
         <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
             {moment(this.props.contribution.date_submitted).format('LL')}
             </Typography>
             <Typography variant="h5" component="h2">
-            {/* be{bull}nev{bull}o{bull}lent */}
+            
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-              {/* Change this to display the user's name, not their ID */}
-            {this.props.contribution.created_by}
+            
+            {this.props.contribution.latitude}
+            <br />
+            {this.props.contribution.longitude}
             </Typography>
             <Typography variant="body2" component="p">
             {this.props.contribution.comment}
             <br />
-            {/* {'"a benevolent smile"'} */}
+            
             </Typography>
         </CardContent>
         <CardActions>
@@ -80,7 +85,24 @@ class Contribution extends Component {
             <p></p>
             }
         </CardActions>
-        </Card> 
+        </Card>  */}
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title>{moment(this.props.contribution.date_submitted).format('LL')}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{this.props.contribution.latitude}
+                      <br />
+                      {this.props.contribution.longitude}</Card.Subtitle>
+              <Card.Text className="text-center">
+              {this.props.contribution.comment}
+              </Card.Text>
+              {this.props.reduxStore.user.id === this.props.contribution.created_by ? 
+                <Button variant="outline-danger" onClick={() => this.props.dispatch(
+                  {type: 'DELETE_CONTRIBUTION',
+                  payload: this.props.contribution.id})} block>Delete</Button> :
+                <p></p> }
+              {/* <Card.Link href="#">Another Link</Card.Link> */}
+            </Card.Body>
+          </Card>
             
         </div>
         </Router>
@@ -100,3 +122,4 @@ class Contribution extends Component {
   })
   
   export default connect(mapStateToProps) (withStyles(styles)(Contribution));
+

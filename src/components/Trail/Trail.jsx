@@ -76,6 +76,7 @@ class Trail extends Component {
             type: 'UPDATE_CURRENT_TRAIL',
             payload: this.state.updatedTrail
         })
+        alert('You are now changing trails!')
     }
 
 
@@ -88,11 +89,11 @@ class Trail extends Component {
       <div>
             <Card className={classes.card}>
                     <CardHeader
-                      avatar={
-                        <Avatar aria-label="Recipe" className={classes.avatar}>
-                          TF
-                        </Avatar>
-                      }
+                      // avatar={
+                      //   <Avatar aria-label="Recipe" className={classes.avatar}>
+                      //     TF
+                      //   </Avatar>
+                      // }
                       action={
                         <IconButton>
                           {/* <MoreVertIcon /> */}

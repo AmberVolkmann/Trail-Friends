@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import {  HashRouter as Router} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { geolocated } from "react-geolocated";
-
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import './AddContribution.css';
 
 class AddContribution extends Component {
 
@@ -26,8 +29,13 @@ class AddContribution extends Component {
     setUserLocation = () => {
         navigator.geolocation.getCurrentPosition(position => {
             this.setState({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
+                newContribution:
+                {
+                    ...this.state.newContribution,
+                    comment: this.state.comment,
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }
             })
           }
         
@@ -36,15 +44,20 @@ class AddContribution extends Component {
     
 
     handleChangeFor = (propertyName, event) => {
-        console.log(event.target.value)
+        console.log(`property name is ${propertyName}`);
+        
+        
         this.setState({
           newContribution: {
               ...this.state.newContribution,
-              latitude: this.state.latitude,
-              longitude: this.state.longitude
-            //   [propertyName]: event.target.value
+            //   comment: this.state.comment,
+            //   latitude: this.state.latitude,
+            //   longitude: this.state.longitude
+              [propertyName]: event.target.value
           }  
         })
+        console.log(this.state);
+        
     }
 
     handleAddContribution = (event) => {
@@ -53,39 +66,36 @@ class AddContribution extends Component {
             type: 'POST_CONTRIBUTION',
             payload: this.state.newContribution
         })
+        alert('Your contribution has been added!')
     }
 
  
     render () {
         return (
-            // !this.props.isGeolocationAvailable ? (
-            //     <div>Your browser does not support Geolocation</div>
-            // ) : !this.props.isGeolocationEnabled ? (
-            //     <div>Geolocation is not enabled</div>
-            // ) : this.props.coords ? (
+            
             <Router>
                 <form className="contributionForm" onSubmit={this.handleAddContribution}>
-                    <label>Add a New Contribution</label>
-                    <tr>
-                        <td>Latitude:</td>
-                        <td>{this.state.latitude}</td>
-                    </tr>
-                    <tr>
-                        <td>Longitude:</td>
-                        <td>{this.state.longitude}</td>
-                    </tr>
-                    <textarea value={this.state.comment} placeholder="Comment" onChange = {(event) => this.handleChangeFor('comment', event)} />
+                    <label>Let someone know what's ahead of them!</label>
+                    
+                    
+                    <textarea value={this.state.newContribution.comment} placeholder="Comment" onChange = {(event) => this.handleChangeFor('comment', event)} />
                     <br />
-                    <input value={this.state.latitude} placeholder="latitude" onChange = {(event) => this.handleChangeFor('latitude', event)} />
+                    <InputGroup className="mb-3">
+                    <InputGroup.Prepend>
+                            {/* <InputGroup.Text>Lat and Lng</InputGroup.Text> */}
+                        </InputGroup.Prepend>
+                        <FormControl value={this.state.newContribution.latitude} placeholder="latitude" onChange = {(event) => this.handleChangeFor('latitude', event)}/>
+                        <FormControl value={this.state.newContribution.longitude} placeholder="longitude" onChange = {(event) => this.handleChangeFor('longitude', event)} />
+                    </InputGroup>
+                    {/* <input  />
                     <br />
-                    <input value={this.state.longitude} placeholder="longitude" onChange = {(event) => this.handleChangeFor('longitude', event)} />
-                    <br />
-                    <input type= "submit" onClick = {this.handleAddContribution}/>
+                    <input />
+                    <br /> */}
+                    <Button variant="success" onClick = {this.handleAddContribution}>Add</Button>
                 </form>
             </Router>
         ) 
-        // : <div>Getting the location data&hellip; </div>
-        // );
+        
     }
 }
 

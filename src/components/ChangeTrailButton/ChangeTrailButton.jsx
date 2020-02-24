@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link, withRouter } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
 
 class ChangeTrailButton extends Component {
   
@@ -14,7 +14,7 @@ class ChangeTrailButton extends Component {
     return (
         <Router>
             <div>
-                <button onClick={this.handleClick}>Change Current Trail</button>
+                <Button variant="outline-success" onClick={this.handleClick} size="lg" block>Change Current Trail</Button>
             </div>
       </Router>
     );
