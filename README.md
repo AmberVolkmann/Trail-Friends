@@ -1,6 +1,13 @@
 # Trail Friends
-During my time at Prime Digital Academy, we were assigned a solo project, which entailed individually building an application over the course of two weeks. I wanted something that would be useful in my daily life, so I created Trail Friends. The goal of Trail Friends is to ease the burden of not knowing what lies ahead of a thru-hiker on the trail. Users are able to leave notes along a selected trail at their exact latitude and longitude, which will give others the opportunity to take necessary precautions on the trail. Users are also able to view a map of their surrounding area.
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+During my time at Prime Digital Academy, we were assigned a solo project, which entailed individually building an application over the course of two weeks. I wanted something that would be useful in my daily life, so I created Trail Friends. The goal of Trail Friends is to ease the burden of not knowing what lies ahead of a thru-hiker on the trail, so they can take the necessary precautions to ensure their safety on the trail.
+
+
+## Description
+This application allows users to log-in and view list of trails in their surrounding area. They are able to scroll through this list, view images of trails, and view current conditions pulled from REI's hiking project app. Users are also able to leave notes along a selected trail at their exact latitude and longitude, which other hikers can view if they are also on the same trail. Users are also able to view a map of their surrounding area.
+
+
+## Technologies
+This application uses React, Redux, Express, Passport, and PostgreSQL. As well as Material UI, REI's Hiking Project API, and the Google Maps API. A full list of dependencies can be found in `package.json`.
 
 ## Prerequisites
 
