@@ -54,38 +54,6 @@ class Contribution extends Component {
       return (
       <Router>
         <div>
-        
-            {/* <Card raised className="cardComponent" style={{display: 'inline-block'}}>
-        <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
-            {moment(this.props.contribution.date_submitted).format('LL')}
-            </Typography>
-            <Typography variant="h5" component="h2">
-            
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-            
-            {this.props.contribution.latitude}
-            <br />
-            {this.props.contribution.longitude}
-            </Typography>
-            <Typography variant="body2" component="p">
-            {this.props.contribution.comment}
-            <br />
-            
-            </Typography>
-        </CardContent>
-        <CardActions>
-            {this.props.reduxStore.user.id === this.props.contribution.created_by ? 
-            <IconButton aria-label="Add to favorites" onClick={() => this.props.dispatch(
-                {type: 'DELETE_CONTRIBUTION',
-                payload: this.props.contribution.id})}>
-                <DeleteIcon />
-            </IconButton> :
-            <p></p>
-            }
-        </CardActions>
-        </Card>  */}
           <Card style={{ width: '18rem' }}>
             <Card.Body>
               <Card.Title>{moment(this.props.contribution.date_submitted).format('LL')}</Card.Title>

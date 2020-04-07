@@ -89,11 +89,6 @@ class Trail extends Component {
       <div>
             <Card className={classes.card}>
                     <CardHeader
-                      // avatar={
-                      //   <Avatar aria-label="Recipe" className={classes.avatar}>
-                      //     TF
-                      //   </Avatar>
-                      // }
                       action={
                         <IconButton>
                           {/* <MoreVertIcon /> */}
