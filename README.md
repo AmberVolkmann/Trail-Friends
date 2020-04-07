@@ -1,7 +1,5 @@
-# Prime Project
+# Trail Friends
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
-
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
 
 ## Download (Don't Clone) This Repository
 
@@ -19,13 +17,34 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+Create a new database called `prime_app` and create a `user` and `contributions` table:
 
 ```SQL
 CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+	"id" serial NOT NULL,
+	"username" varchar(255),
+	"password" varchar(255),
+	"first_name" varchar(255),
+	"last_name" varchar(255),
+	"profile_picture" varchar(255),
+	"current_trail" integer,
+	CONSTRAINT "User_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE "contributions" (
+	"id" serial NOT NULL,
+	"created_by" integer,
+	"comment" varchar,
+	"date_submitted" DATE,
+	"trail_id" integer,
+	"latitude" float8,
+	"longitude" float8,
+	CONSTRAINT "contributions_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
 );
 ```
 
