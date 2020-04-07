@@ -48,12 +48,6 @@ class AllContributions extends Component {
     return (
       <Router>
         <div className="allContributions">
-        {/* <Grid container className={classes.root} spacing={16}>
-            <Grid item xs={12} sm container>
-                <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-                    {[0, 1, 2].map(value => (
-                    <Grid key={value} item> */}
-                    
                 {this.props.reduxStore.contributionReducer.map(contribution => {
                     return (
                     <CardDeck className="align-self-center mr-3">
@@ -61,14 +55,6 @@ class AllContributions extends Component {
                     </CardDeck>
                     )
                     })}
-                    {/* </Grid>
-                    ))}
-                </Grid>
-            </Grid>
-        </Grid>
-          <Map trails={this.props.reduxStore.trails} id={this.props.reduxStore.id} key={this.props.reduxStore.id} 
-          latitude={this.props.reduxStore.latitude}
-          /> */}
         </div>
       </Router>
       

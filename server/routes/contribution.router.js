@@ -18,8 +18,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             console.log('error in contribution GET', error)
             res.sendStatus(500);
         })
-            
-           
+               
 });
 
 /**
